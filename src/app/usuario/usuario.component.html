@@ -1,0 +1,95 @@
+<form [formGroup]="form">
+    <div class="row"> <div class="col-lg-12"> <h2>Cadastrar Usuário</h2></div></div>
+    <div class="row">   
+        <div class="col-lg-4">
+            <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome" formControlName="nome">
+            </div>
+        </div>
+        <div class="col-lg-4">   
+            <div class="form-group">
+                <label for="inputIdent">Identidade</label>
+                <input type="text" class="form-control" id="inputIdent" aria-describedby="idHelp" placeholder="" formControlName="identidade">
+                <small id="idHelp" class="form-text text-muted">Qualquer documento válido com foto</small>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+            <label for="inputCpf">CPF</label>
+            <input type="text" class="form-control" id="inputCpf" formControlName="cpf">
+            </div>
+        </div>
+    </div>
+    <div class="row">           
+        <div class="col-lg-4">   
+            <div class="form-group">
+                <label for="inputEmail">E-mail</label>
+                <!--<div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>-->                
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite seu e-mail mais utilizado" formControlName="email">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+            <label for="inputCel">Telefone</label>
+            <input type="phone" class="form-control" id="inputCel" formControlName="telefone">
+            </div>
+        </div>
+    </div>
+    <div class="row">   
+        <div class="col-lg-4">   
+            <div class="form-group">
+                <label for="inputEnde">Endereço</label>
+                <input type="email" class="form-control" id="inputEnde" aria-describedby="emailHelp" placeholder="Digite seu e-mail mais utilizado" formControlName="logradouro">
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <div class="form-group">
+            <label for="inputNum">Número</label>
+            <input type="phone" class="form-control" id="inputNum" formControlName="numero">
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+            <label for="inputBairro">Bairro</label>
+            <select class="form-control" id="inputCidade">
+                <option value="1">Icaraí</option>
+                <option value="2">Ibirapuera</option>
+                <option value="3"></option>
+            </select> 
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="inputCidade">Cidade</label>
+                <select class="form-control" id="inputCidade">
+                    <option value="1">Niterói</option>
+                    <option value="2">São Paulo</option>
+                    <option value="3">Santa Catarina</option>
+                </select>  
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <div class="form-group">
+            <label for="inputUF">UF</label>
+            <select class="form-control" id="inputUF">
+                <option value="1">RJ</option>
+                <option value="2">SP</option>
+                <option value="3">SC</option>
+            </select>    
+            </div>
+        </div>
+    </div>
+    <div class="row"> 
+        <div class="col-lg-4">   
+            <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="submit()">Cadastrar</button>
+</form>

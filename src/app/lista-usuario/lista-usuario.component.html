@@ -1,0 +1,22 @@
+<table class="table table-striped table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cod</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Telefone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of usuarios">
+      <th scope="row">1</th>
+      <td>{{item.id}}</td>
+      <td>{{item.nome}}</td>
+      <td>{{item.cpf}}</td>
+      <td>{{item.telefone}}</td>
+    </tr>
+  </tbody>
+</table>
+  
+  
