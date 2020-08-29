@@ -1,0 +1,83 @@
+<div class="row"> <div class="col-lg-12"> 
+    <h2 class="title-page"><span class="part-title">Contrato</span> - Pagamentos</h2>
+  </div>
+</div>
+<div class="row">   
+    <div class="col-lg-4">
+        <div class="form-group">
+        <label for="inputNome">Aluno</label>
+        <input type="text" class="form-control" id="inputNome" value="Francisco Verissimo" readonly="true">
+        </div>
+    </div>
+    <div class="col-lg-3">   
+        <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" placeholder="" value="08792703739" readonly="true">
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="form-group">
+        <label for="tipo">Tipo Contrato</label>
+        <input type="text" class="form-control" id="tipo" value="Mensal" readonly="true">
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="form-group">
+      <label for="dataIni">Data início</label>
+      <input type="text" class="form-control" id="dataIni" value="02/08/2020" readonly="true">
+      </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+    <label for="dataFim">Data Fim</label>
+    <input type="text" class="form-control" id="dataFim" value="01/08/2021" readonly="true">
+    </div>
+</div>
+    <div class="col-lg-2">
+        <div class="form-group">
+        <label for="inputCpf">Próximo Vencimento</label>
+        <input type="text" class="form-control" id="inputCpf" value="02/09/2020" readonly="true">
+        </div>
+    </div>
+</div>
+
+
+<div class="row m-top-30">
+  <div class="col-lg-12">
+    <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="FALSE" class="z-depth-1">
+      <thead class="sticky-top">
+      <tr>
+        <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"
+            scope="col" title="Ordenar">{{head | titlecase}} <mdb-icon fas icon="sort" title="Ordenar"></mdb-icon>
+        </th>
+      </tr>
+      </thead>
+      <tbody #row>
+      <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.mesReferencia}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.dataVencimento}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.valor}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.desconto}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.multta}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.valorPago}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.meioPagamento}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">            
+          <span class="table-remove">
+            <button *ngIf="el.status=='Pago'" type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="onEdit(el.id)">Pago</button>
+            <button *ngIf="el.status=='Em Aberto'" type="button" mdbBtn color="warning" rounded="true" size="sm" class="my-0" (click)="onEdit(el.id)">Pagar</button>
+          </span>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot class="grey lighten-5 w-100">
+      <tr>
+        <td colspan="9">
+          <mdb-table-pagination [tableEl]="mdbTable" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

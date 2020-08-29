@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { pipe } from 'rxjs';
 
 @Injectable()
 export class UsuariosService {
 
   usuariosUrl = 'http://localhost:3000/usuarios';
+  //usuariosUrl = 'http://localhost:8080/lista-usuarios';
 
   constructor(
     private http: HttpClient ) { }

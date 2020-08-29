@@ -9,10 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class UsuarioComponent implements OnInit {
 
-  form: FormGroup;
-  usuario: String;
-  message: string;
-
+  form: FormGroup;  
 
   constructor(
     private fb: FormBuilder, 

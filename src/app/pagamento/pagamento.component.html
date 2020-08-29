@@ -1,0 +1,34 @@
+<form [formGroup]="form">
+    <div class="row"> <div class="col-lg-12"> <h2>Informar Pagamento</h2></div></div>
+    <div class="row">   
+        <div class="col-lg-4">
+            <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome" formControlName="nome">
+            </div>
+        </div>
+        <div class="col-lg-4">   
+            <div class="form-group">
+                <label for="inputCpf">CPF</label>
+                <input type="text" class="form-control" id="inputCpf" aria-describedby="idHelp" formControlName="cpf">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+            <label for="inputMes">Mês Referência</label>
+            <input type="text" class="form-control" id="inputMes" formControlName="mesReferencia">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+            <label for="inputDataVencimento">Data Vencimento</label>
+            <input type="text" class="form-control" id="inputDataVencimento" formControlName="dataVencimento">
+            </div>
+        </div>
+    </div>
+    <div class="row">           
+        <div class="col-lg-12">   
+            <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="submit()">Pagar</button>
+        </div>
+    </div>
+</form>

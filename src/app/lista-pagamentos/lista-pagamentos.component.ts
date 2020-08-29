@@ -1,28 +1,35 @@
 import { Component, OnInit, ElementRef, HostListener, AfterViewInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
-import { UsuariosService } from './../usuarios.service';
+import { PagamentosService } from './../pagamentos.service';
 import { FormGroup, FormControl} from '@angular/forms';
+import { Router, ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-lista-usuario',
-  templateUrl: './lista-usuario.component.html',
-  styleUrls: ['./lista-usuario.component.scss']
+  selector: 'app-lista-pagamentos',
+  templateUrl: './lista-pagamentos.component.html',
+  styleUrls: ['./lista-pagamentos.component.scss'],
+  providers: [PagamentosService]
 })
-export class ListaUsuarioComponent implements OnInit, AfterViewInit {
+export class ListaPagamentosComponent implements OnInit, AfterViewInit {
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild('row', { static: true }) row: ElementRef;
 
   elements: any =  [];
-  headElements = ['nome', 'identidade', 'cpf', 'email', 'telefone', 'acoes'];
+  headElements = ['mesRefrencia', 'dataVencimento', 'valor', 'desconto', 'multa', 'valorPago', 'meioPagamento', 'acoes'];
   searchText: string = '';
   previous: string;
-  maxVisibleItems: number = 5;
+  maxVisibleItems: number = 8;
   form: FormGroup;  
 
   constructor(
-    private usuariosService: UsuariosService,
-    private cdRef: ChangeDetectorRef)
+    private pagamentosService: PagamentosService,
+    private cdRef: ChangeDetectorRef,
+    private router: Router,
+    private route: ActivatedRoute
+    
+    )
     {
       this.form = new FormGroup({
         searchText: new FormControl()
@@ -34,12 +41,17 @@ export class ListaUsuarioComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.usuariosService.listarUsuarios().subscribe(dados => {
+    this.pagamentosService.listarPagamentos().subscribe(dados => {
       this.elements = dados;
       this.mdbTable.setDataSource(this.elements);
     });  
     this.mdbTable.getDataSource();
     this.previous = this.mdbTable.getDataSource();
+
+  }
+
+  onEdit(id){
+    this.router.navigate(['pagamento', id], {relativeTo: this.route});
   }
 
   ngAfterViewInit() {
@@ -53,11 +65,14 @@ export class ListaUsuarioComponent implements OnInit, AfterViewInit {
   addNewRow() {
     this.mdbTable.addRow({
       id: this.elements.length.toString(),
-      nome: 'nome' + this.elements.length,
-      identidade:'identidade' + this.elements.length,
-      cpf: 'cpf' + this.elements.length,
-      email: 'email' + this.elements.length,
-      telefone: 'telefone' + this.elements.length
+      mesReferencia: 'mesRefrencia' + this.elements.length,
+      dataVencimento:'dataVencimento' + this.elements.length,
+      valor: 'valor' + this.elements.length,
+      desconto: 'desconto' + this.elements.length,
+      multa: 'multa' + this.elements.length,
+      valorPago: 'valorPago' + this.elements.length,
+      meioPagamento: 'meioPagamento' + this.elements.length,
+      status: 'status' + this.elements.length
     });
     this.emitDataSourceChange();
   }
@@ -109,10 +124,11 @@ export class ListaUsuarioComponent implements OnInit, AfterViewInit {
   }
 
   lista(){
-  this.usuariosService.listarUsuarios().subscribe(dados => this.elements = dados);
+  this.pagamentosService.listarPagamentos().subscribe(dados => this.elements = dados);
   }
 
   remove(id: any) {
     this.elements.splice(id, 1);
   }
+
 }

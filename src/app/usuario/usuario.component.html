@@ -1,5 +1,5 @@
 <form [formGroup]="form">
-    <div class="row"> <div class="col-lg-12"> <h2>Cadastrar Usuário</h2></div></div>
+    <h2 class="title-page">Incluir Aluno</h2>
     <div class="row">   
         <div class="col-lg-4">
             <div class="form-group">
@@ -7,14 +7,13 @@
             <input type="text" class="form-control" id="inputNome" formControlName="nome">
             </div>
         </div>
-        <div class="col-lg-4">   
+        <div class="col-lg-3">   
             <div class="form-group">
                 <label for="inputIdent">Identidade</label>
                 <input type="text" class="form-control" id="inputIdent" aria-describedby="idHelp" placeholder="" formControlName="identidade">
-                <small id="idHelp" class="form-text text-muted">Qualquer documento válido com foto</small>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="form-group">
             <label for="inputCpf">CPF</label>
             <input type="text" class="form-control" id="inputCpf" formControlName="cpf">
@@ -31,7 +30,7 @@
                 <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite seu e-mail mais utilizado" formControlName="email">
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="form-group">
             <label for="inputCel">Telefone</label>
             <input type="phone" class="form-control" id="inputCel" formControlName="telefone">
@@ -45,13 +44,14 @@
                 <input type="email" class="form-control" id="inputEnde" aria-describedby="emailHelp" placeholder="Digite seu e-mail mais utilizado" formControlName="logradouro">
             </div>
         </div>
-        <div class="col-lg-1">
+        <div class="col-lg-3">
             <div class="form-group">
-            <label for="inputNum">Número</label>
+            <label for="inputNum">Número/Complemento</label>
             <input type="phone" class="form-control" id="inputNum" formControlName="numero">
             </div>
         </div>
-
+    </div>
+    <div class="row">   
         <div class="col-lg-3">
             <div class="form-group">
             <label for="inputBairro">Bairro</label>
@@ -83,13 +83,6 @@
             </div>
         </div>
     </div>
-    <div class="row"> 
-        <div class="col-lg-4">   
-            <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-        </div>
-    </div>
+    <hr>
     <button type="submit" class="btn btn-primary" (click)="submit()">Cadastrar</button>
 </form>

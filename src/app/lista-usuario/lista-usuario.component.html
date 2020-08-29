@@ -1,22 +1,43 @@
-<table class="table table-striped table-hover">
-  <thead class="thead-dark">
+<h2 class="title-page">Pesquisar Aluno</h2>
+<div class="row">
+  <div class="col-md-6">
+    <form [formGroup]="form">
+      <div class="md-form">
+        <input type="text" class="form-control" formControlName="searchText" [(ngModel)] = "searchText" (keyup)="searchItems()" id="search-input"
+              mdbInput >
+        <label for="search-input">Por Nome ou CPF</label>
+      </div>
+    </form>
+  </div>
+  <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="FALSE" class="z-depth-1">
+    <thead class="sticky-top">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Cod</th>
-      <th scope="col">Nome</th>
-      <th scope="col">CPF</th>
-      <th scope="col">Telefone</th>
+      <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"
+          scope="col" title="Ordenar">{{head | titlecase}} <mdb-icon fas icon="sort" title="Ordenar"></mdb-icon>
+
+      </th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of usuarios">
-      <th scope="row">1</th>
-      <td>{{item.id}}</td>
-      <td>{{item.nome}}</td>
-      <td>{{item.cpf}}</td>
-      <td>{{item.telefone}}</td>
+    </thead>
+    <tbody #row>
+    <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
+      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.nome}}</td>
+      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.identidade}}</td>
+      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.cpf}}</td>
+      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.email}}</td>
+      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.telefone}}</td>
+      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">            
+        <span class="table-remove">
+          <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Remove</button>
+        </span>
+      </td>
     </tr>
-  </tbody>
-</table>
-  
-  
+    </tbody>
+    <tfoot class="grey lighten-5 w-100">
+    <tr>
+      <td colspan="6">
+        <mdb-table-pagination [tableEl]="mdbTable" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
