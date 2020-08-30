@@ -38,13 +38,14 @@ export class PagamentoComponent implements OnInit {
       cpf:[null],
       mesReferencia:[null],      
       dataVencimento:[null],
+      valor:[null],
       dataPagamento:[null],
       juros:[null],
       multa:[null],
       desconto:[null],
       valorPago:[null],
       meioPagamento:[null],
-      status:[null]
+      status:[null,[Validators.required]],
     });
   }
 
@@ -53,10 +54,10 @@ export class PagamentoComponent implements OnInit {
       id: pagamento.id,
       nome: pagamento.nome,
       cpf: pagamento.cpf,
+      valor: pagamento.valor,
       mesReferencia:pagamento.mesReferencia,      
       dataVencimento:pagamento.dataVencimento,
       dataPagamento:pagamento.dataPagamento,
-      juros:pagamento.juros,
       multa:pagamento.multa,
       desconto:pagamento.desconto,
       valorPago:pagamento.valorPago,

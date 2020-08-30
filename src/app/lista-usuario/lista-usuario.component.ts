@@ -17,7 +17,7 @@ export class ListaUsuarioComponent implements OnInit, AfterViewInit {
   headElements = ['nome', 'identidade', 'cpf', 'email', 'telefone', 'acoes'];
   searchText: string = '';
   previous: string;
-  maxVisibleItems: number = 5;
+  maxVisibleItems: number = 4;
   form: FormGroup;  
 
   constructor(

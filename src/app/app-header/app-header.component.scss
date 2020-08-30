@@ -1,8 +1,24 @@
 .bg-header{
     height: 50px;
     background-color: #056571;
+    text-align: right;
     
     a{
         color: #fff;
     }
+    
+}
+.user{    
+    text-align: right;
+    width: 100%;
+}
+
+.bem-vindo{
+    margin-right: 10px;
+    color: #fff;
+}
+.sistema{
+    float: left;
+    margin-left: 10px;
+    color: #fff;
 }

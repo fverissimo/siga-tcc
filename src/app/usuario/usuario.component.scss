@@ -22,3 +22,24 @@ hr{
 .part-title{
     color: #056571;
 }
+.btn-default {
+    background-color: #056571!important;
+    color: #fff;
+}
+.btn.btn-sm {
+    padding: .5rem 1.6rem;
+    font-size: .64rem;
+}
+
+.btn-primary {
+    background-color: #056571!important;
+    color: #fff;
+    border-color: #0e8d9d;
+    padding: .5rem 1.6rem;
+    font-size: .64rem;
+}
+.btn-primary:hover {
+    background-color: #056571!important;
+    color: #fff;
+    border-color: #0e8d9d;
+}

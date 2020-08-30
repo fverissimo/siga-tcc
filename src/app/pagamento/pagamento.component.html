@@ -1,34 +1,87 @@
 <form [formGroup]="form">
-    <div class="row"> <div class="col-lg-12"> <h2>Informar Pagamento</h2></div></div>
+    <div class="row"> 
+        <div class="col-lg-12"> 
+          <h2 class="title-page">Informar Pagamento</h2>
+        </div>
+      </div>
     <div class="row">   
         <div class="col-lg-4">
             <div class="form-group">
             <label for="inputNome">Nome</label>
-            <input type="text" class="form-control" id="inputNome" formControlName="nome">
+            <input type="text" class="form-control" id="inputNome" formControlName="nome" readonly="true">
             </div>
         </div>
         <div class="col-lg-4">   
             <div class="form-group">
                 <label for="inputCpf">CPF</label>
-                <input type="text" class="form-control" id="inputCpf" aria-describedby="idHelp" formControlName="cpf">
+                <input type="text" class="form-control" id="inputCpf" formControlName="cpf" readonly="true">
             </div>
         </div>
-        <div class="col-lg-4">
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
             <div class="form-group">
-            <label for="inputMes">Mês Referência</label>
-            <input type="text" class="form-control" id="inputMes" formControlName="mesReferencia">
+            <label for="mesReferencia">Mês Referência</label>
+            <input type="text" class="form-control" id="mesReferencia" formControlName="mesReferencia" readonly="true">
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-2">
             <div class="form-group">
-            <label for="inputDataVencimento">Data Vencimento</label>
-            <input type="text" class="form-control" id="inputDataVencimento" formControlName="dataVencimento">
+            <label for="dataVencimento">Data Vencimento</label>
+            <input type="text" class="form-control" id="dataVencimento" formControlName="dataVencimento" readonly="true">
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+            <label for="valor">Valor</label>
+            <input type="text" class="form-control" id="valor" formControlName="valor" readonly="true">
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+            <label for="multa">Multa</label>
+            <input type="text" class="form-control" id="multa" formControlName="multa">
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+            <label for="desconto">Desconto</label>
+            <input type="text" class="form-control" id="desconto" formControlName="desconto">
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+            <label for="valorPago">Valor Pago</label>
+            <input type="text" class="form-control" id="valorPago" formControlName="valorPago">
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="inpuMeio">Meio Pagamento</label>
+                <select class="form-control" id="inpuMeio" formControlName="meioPagamento">
+                    <option value="Selecione">Selecione</option>
+                    <option value="Crédito">Crédito</option>
+                    <option value="Débito">Débito</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>  
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+                <label for="inputStatusPgto">Pagamento OK?</label>
+                <select class="form-control" id="inputStatusPgto" formControlName="status" required="true">
+                    <option value="Selecione">Selecione</option>
+                    <option value="Pago">Sim</option>
+                    <option value="Em Aberto">Não</option>
+                </select>  
             </div>
         </div>
     </div>
     <div class="row">           
         <div class="col-lg-12">   
-            <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="submit()">Pagar</button>
+            <hr>
+            <button type="button" mdbBtn color="default" rounded="true" size="sm" class="my-0" (click)="submit()">Cancelar</button>
+            <button type="button" mdbBtn color="primary" rounded="true" size="sm" class="my-0" (click)="submit()">Salvar</button>
         </div>
     </div>
 </form>

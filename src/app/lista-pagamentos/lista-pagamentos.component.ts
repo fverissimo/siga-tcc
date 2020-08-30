@@ -20,7 +20,7 @@ export class ListaPagamentosComponent implements OnInit, AfterViewInit {
   headElements = ['mesRefrencia', 'dataVencimento', 'valor', 'desconto', 'multa', 'valorPago', 'meioPagamento', 'acoes'];
   searchText: string = '';
   previous: string;
-  maxVisibleItems: number = 8;
+  maxVisibleItems: number = 4;
   form: FormGroup;  
 
   constructor(

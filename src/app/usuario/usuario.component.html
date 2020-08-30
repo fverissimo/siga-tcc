@@ -1,5 +1,9 @@
 <form [formGroup]="form">
-    <h2 class="title-page">Incluir Aluno</h2>
+    <div class="row"> 
+        <div class="col-lg-12"> 
+          <h2 class="title-page">Incluir Aluno</h2>
+        </div>
+      </div>
     <div class="row">   
         <div class="col-lg-4">
             <div class="form-group">
@@ -41,7 +45,7 @@
         <div class="col-lg-4">   
             <div class="form-group">
                 <label for="inputEnde">Endereço</label>
-                <input type="email" class="form-control" id="inputEnde" aria-describedby="emailHelp" placeholder="Digite seu e-mail mais utilizado" formControlName="logradouro">
+                <input type="email" class="form-control" id="inputEnde" aria-describedby="emailHelp" formControlName="logradouro">
             </div>
         </div>
         <div class="col-lg-3">
@@ -56,9 +60,11 @@
             <div class="form-group">
             <label for="inputBairro">Bairro</label>
             <select class="form-control" id="inputCidade">
-                <option value="1">Icaraí</option>
-                <option value="2">Ibirapuera</option>
-                <option value="3"></option>
+                <option value="Selecione">Selecione</option>
+                <option value="Icaraí">Icaraí</option>
+                <option value="Centro">Centro</option>
+                <option value="Piratininga">Piratininga</option>
+                <option value="Ingá">Ingá</option>
             </select> 
             </div>
         </div>
@@ -66,9 +72,10 @@
             <div class="form-group">
                 <label for="inputCidade">Cidade</label>
                 <select class="form-control" id="inputCidade">
-                    <option value="1">Niterói</option>
-                    <option value="2">São Paulo</option>
-                    <option value="3">Santa Catarina</option>
+                    <option value="Selecione">Selecione</option>
+                    <option value="Niterói">Niterói</option>
+                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                    <option value="Petrópolis">Petrópolis</option>
                 </select>  
             </div>
         </div>
@@ -76,13 +83,22 @@
             <div class="form-group">
             <label for="inputUF">UF</label>
             <select class="form-control" id="inputUF">
-                <option value="1">RJ</option>
-                <option value="2">SP</option>
-                <option value="3">SC</option>
+                <option value="RJ">RJ</option>
+                <option value="SP">SP</option>
+                <option value="SP">MG</option>
+                <option value="SP">ES</option>
+                <option value="SC">SC</option>
+                <option value="RJ">PR</option>
+                <option value="SP">RS</option>
             </select>    
             </div>
         </div>
     </div>
-    <hr>
-    <button type="submit" class="btn btn-primary" (click)="submit()">Cadastrar</button>
+    
+    <div class="row">           
+        <div class="col-lg-12">   
+            <hr>
+            <button type="button" mdbBtn color="default" rounded="true" size="sm" class="my-0" (click)="submit()">SALVAR</button>
+        </div>
+    </div>
 </form>
